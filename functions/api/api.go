@@ -12,6 +12,7 @@ var mux = http.NewServeMux()
 var svc = setupService()
 
 func init() {
+	mux.HandleFunc("/search", http.HandlerFunc(svc.Search))
 	mux.HandleFunc("/chapters", http.HandlerFunc(svc.Chapters))
 	mux.HandleFunc("/text", http.HandlerFunc(svc.Text))
 }

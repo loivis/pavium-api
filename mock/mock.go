@@ -3,8 +3,15 @@ package mock
 import "github.com/loivis/prunusavium-go/pavium"
 
 type Site struct {
-	ChaptersFunc func(string) []pavium.Chapter
-	TextFunc     func(string) string
+	NameFunc           func() string
+	ChaptersFunc       func(string) []pavium.Chapter
+	TextFunc           func(string) string
+	SearchBookFunc     func(author, title string) (pavium.Book, error)
+	SearchKeywordsFunc func(string) []pavium.Book
+}
+
+func (s *Site) Name() string {
+	return s.NameFunc()
 }
 
 func (s *Site) Chapters(link string) []pavium.Chapter {
@@ -15,8 +22,10 @@ func (s *Site) Text(link string) string {
 	return s.TextFunc(link)
 }
 
-type Left struct {
+func (s *Site) SearchBook(author, title string) (pavium.Book, error) {
+	return s.SearchBookFunc(author, title)
 }
 
-type Right struct {
+func (s *Site) SearchKeywords(keywords string) []pavium.Book {
+	return s.SearchKeywordsFunc(keywords)
 }
