@@ -1,6 +1,7 @@
 package piaotian
 
 import (
+	"fmt"
 	"log"
 	"strings"
 
@@ -9,10 +10,36 @@ import (
 	"github.com/loivis/prunusavium-go/pavium"
 )
 
-type Site struct{}
+type Site struct {
+	name        string
+	home        string
+	chapterLink string
+}
 
 func New() *Site {
-	return &Site{}
+	return &Site{
+		name:        string(pavium.Piaotian),
+		home:        "https://www.ptwxz.com/",
+		chapterLink: "https://www.ptwxz.com/html/",
+	}
+}
+
+func (s *Site) Name() string {
+	return s.name
+}
+
+func (s *Site) SearchBook(author, title string) (pavium.Book, error) {
+	book := pavium.Book{Author: author, Title: title}
+
+	q := fmt.Sprintf("%s %s site:%s", author, title, s.home)
+	link, err := http.Search(q)
+	if err != nil {
+		return book, err
+	}
+
+	book.ChapterLink = s.parseChapterLink(link)
+
+	return book, nil
 }
 
 func (s *Site) Chapters(link string) []pavium.Chapter {
@@ -68,4 +95,19 @@ func (s *Site) Text(link string) string {
 	text := ndoc.Find("body").Children().Remove().End().Text()
 
 	return strings.TrimSpace(text)
+}
+
+func (s *Site) parseChapterLink(link string) string {
+	if link == "" {
+		return ""
+	}
+
+	link = strings.Trim(link, ".html")
+	ss := strings.Split(link, "/")
+
+	if len(ss) < 6 {
+		return ""
+	}
+
+	return s.chapterLink + ss[4] + "/" + ss[5] + "/"
 }
