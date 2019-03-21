@@ -3,6 +3,8 @@ package api
 import (
 	"net/http"
 
+	"github.com/loivis/prunusavium-go/left/piaotian"
+	"github.com/loivis/prunusavium-go/pavium"
 	"github.com/loivis/prunusavium-go/service"
 )
 
@@ -18,5 +20,9 @@ func V1(w http.ResponseWriter, r *http.Request) {
 }
 
 func setupService() *service.Service {
-	return service.New(nil)
+	sites := map[pavium.SiteName]pavium.Site{
+		pavium.Piaotian: piaotian.New(),
+	}
+
+	return service.New(sites)
 }

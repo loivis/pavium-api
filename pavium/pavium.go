@@ -7,6 +7,10 @@ type Chapter struct {
 
 type SiteName string
 
+const (
+	Piaotian SiteName = "飘天文学网"
+)
+
 type Site interface {
 	Chapters(link string) []Chapter
 }
