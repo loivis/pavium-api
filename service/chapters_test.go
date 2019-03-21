@@ -16,7 +16,7 @@ func TestService_Chapters(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodTrace, "/foo", nil)
 
-		New(nil).Chapters(w, r)
+		New().Chapters(w, r)
 
 		if got, want := w.Code, http.StatusMethodNotAllowed; got != want {
 			t.Fatalf("w.Code = %d, want %d", got, want)
@@ -45,10 +45,13 @@ func TestService_GetChapters(t *testing.T) {
 				return wantChapters
 			},
 		}
-
-		svc := New(map[pavium.SiteName]pavium.Site{
+		lefts := map[pavium.SiteName]pavium.Left{
 			"foo": site,
-		})
+		}
+
+		svc := New(
+			WithLefts(lefts),
+		)
 
 		log.Printf("svc: %+v", svc)
 
@@ -82,7 +85,7 @@ func TestService_GetChapters(t *testing.T) {
 	t.Run("MissingParameterSite", func(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodGet, "/foo?link=https%3A%2F%2Ffoo.org", nil)
-		svc := New(nil)
+		svc := New()
 
 		svc.getChapters(w, r)
 
@@ -94,7 +97,7 @@ func TestService_GetChapters(t *testing.T) {
 	t.Run("MissingParameterLink", func(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodGet, "/foo?site=bar", nil)
-		svc := New(nil)
+		svc := New()
 
 		svc.getChapters(w, r)
 
@@ -106,7 +109,7 @@ func TestService_GetChapters(t *testing.T) {
 	t.Run("UnknownSite", func(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodGet, "/foo?site=bar&link=https%3A%2F%2Ffoo.org", nil)
-		svc := New(nil)
+		svc := New()
 
 		svc.getChapters(w, r)
 

@@ -15,7 +15,7 @@ func TestService_Text(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodTrace, "/foo", nil)
 
-		New(nil).Text(w, r)
+		New().Text(w, r)
 
 		if got, want := w.Code, http.StatusMethodNotAllowed; got != want {
 			t.Fatalf("w.Code = %d, want %d", got, want)
@@ -35,10 +35,13 @@ func TestService_GetText(t *testing.T) {
 				return wantText
 			},
 		}
-
-		svc := New(map[pavium.SiteName]pavium.Site{
+		lefts := map[pavium.SiteName]pavium.Left{
 			"foo": site,
-		})
+		}
+
+		svc := New(
+			WithLefts(lefts),
+		)
 
 		svc.getText(w, r)
 
@@ -64,7 +67,7 @@ func TestService_GetText(t *testing.T) {
 	t.Run("MissingParameterSite", func(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodGet, "/foo?link=https%3A%2F%2Ffoo.org", nil)
-		svc := New(nil)
+		svc := New()
 
 		svc.getText(w, r)
 
@@ -76,7 +79,7 @@ func TestService_GetText(t *testing.T) {
 	t.Run("MissingParameterLink", func(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodGet, "/foo?site=bar", nil)
-		svc := New(nil)
+		svc := New()
 
 		svc.getText(w, r)
 
@@ -88,7 +91,7 @@ func TestService_GetText(t *testing.T) {
 	t.Run("UnknownSite", func(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest(http.MethodGet, "/foo?site=bar&link=https%3A%2F%2Ffoo.org", nil)
-		svc := New(nil)
+		svc := New()
 
 		svc.getText(w, r)
 

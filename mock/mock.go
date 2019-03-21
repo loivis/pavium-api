@@ -14,3 +14,9 @@ func (s *Site) Chapters(link string) []pavium.Chapter {
 func (s *Site) Text(link string) string {
 	return s.TextFunc(link)
 }
+
+type Left struct {
+}
+
+type Right struct {
+}

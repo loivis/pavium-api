@@ -21,9 +21,11 @@ func V1(w http.ResponseWriter, r *http.Request) {
 }
 
 func setupService() *service.Service {
-	sites := map[pavium.SiteName]pavium.Site{
+	lefts := map[pavium.SiteName]pavium.Left{
 		pavium.Piaotian: piaotian.New(),
 	}
 
-	return service.New(sites)
+	return service.New(
+		service.WithLefts(lefts),
+	)
 }

@@ -15,3 +15,9 @@ type Site interface {
 	Chapters(link string) []Chapter
 	Text(link string) (text string)
 }
+
+type Left interface {
+}
+
+type Right interface {
+}
