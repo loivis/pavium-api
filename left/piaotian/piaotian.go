@@ -2,6 +2,7 @@ package piaotian
 
 import (
 	"log"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/loivis/convolvulus-utils/http"
@@ -45,4 +46,26 @@ func (s *Site) Chapters(link string) []pavium.Chapter {
 	})
 
 	return chapters
+}
+
+func (s *Site) Text(link string) string {
+	doc, err := http.GetDoc(link)
+	if err != nil {
+		log.Println(err)
+		return ""
+	}
+
+	replacer := strings.NewReplacer(
+		"<br/>", "\n",
+		"\u00a0", "",
+		"\b", "",
+		"\t", "",
+	)
+
+	html, _ := doc.Html()
+	html = replacer.Replace(html)
+	ndoc, _ := goquery.NewDocumentFromReader(strings.NewReader(html))
+	text := ndoc.Find("body").Children().Remove().End().Text()
+
+	return strings.TrimSpace(text)
 }

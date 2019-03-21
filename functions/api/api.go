@@ -13,6 +13,7 @@ var svc = setupService()
 
 func init() {
 	mux.HandleFunc("/chapters", http.HandlerFunc(svc.Chapters))
+	mux.HandleFunc("/text", http.HandlerFunc(svc.Text))
 }
 
 func V1(w http.ResponseWriter, r *http.Request) {
