@@ -3,9 +3,10 @@ package service
 import "github.com/loivis/prunusavium-go/pavium"
 
 type Service struct {
-	lefts  map[pavium.SiteName]pavium.Left
-	rights map[pavium.SiteName]pavium.Right
-	sites  map[pavium.SiteName]pavium.Site
+	lefts    map[pavium.SiteName]pavium.Left
+	rights   map[pavium.SiteName]pavium.Right
+	sites    map[pavium.SiteName]pavium.Site
+	favStore pavium.Store
 }
 
 type opts func(*Service)
@@ -43,5 +44,11 @@ func WithRights(rights map[pavium.SiteName]pavium.Right) opts {
 				svc.sites[name] = site
 			}
 		}
+	}
+}
+
+func WithFavStore(store pavium.Store) opts {
+	return func(svc *Service) {
+		svc.favStore = store
 	}
 }

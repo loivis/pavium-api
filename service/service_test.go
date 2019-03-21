@@ -80,3 +80,14 @@ func TestService_WithRights(t *testing.T) {
 		t.Errorf("len(svc.sites) = %d, want %d", got, want)
 	}
 }
+
+func TestService_WithFavStore(t *testing.T) {
+	store := &mock.Store{}
+	svc := New(
+		WithFavStore(store),
+	)
+
+	if got, want := svc.favStore, store; got != want {
+		t.Errorf("service.store = %v, want %v", got, want)
+	}
+}
