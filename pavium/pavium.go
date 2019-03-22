@@ -59,4 +59,5 @@ type SiteName string
 
 const (
 	Piaotian SiteName = "飘天文学网"
+	Qidian   SiteName = "起点中文网"
 )

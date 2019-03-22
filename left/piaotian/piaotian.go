@@ -13,14 +13,14 @@ import (
 type Site struct {
 	name        string
 	home        string
-	chapterLink string
+	chapterURL string
 }
 
 func New() *Site {
 	return &Site{
 		name:        string(pavium.Piaotian),
 		home:        "https://www.ptwxz.com/",
-		chapterLink: "https://www.ptwxz.com/html/",
+		chapterURL: "https://www.ptwxz.com/html/",
 	}
 }
 
@@ -109,5 +109,5 @@ func (s *Site) parseChapterLink(link string) string {
 		return ""
 	}
 
-	return s.chapterLink + ss[4] + "/" + ss[5] + "/"
+	return s.chapterURL + ss[4] + "/" + ss[5] + "/"
 }

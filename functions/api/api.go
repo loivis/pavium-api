@@ -6,6 +6,7 @@ import (
 
 	"github.com/loivis/prunusavium-go/left/piaotian"
 	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-go/right/qidian"
 	"github.com/loivis/prunusavium-go/service"
 	"github.com/loivis/prunusavium-go/store"
 )
@@ -30,10 +31,14 @@ func setupService() *service.Service {
 	lefts := map[pavium.SiteName]pavium.Left{
 		pavium.Piaotian: piaotian.New(),
 	}
+	rights := map[pavium.SiteName]pavium.Right{
+		pavium.Qidian: qidian.New(),
+	}
 	favStore := store.New(project, "favorites")
 
 	return service.New(
 		service.WithLefts(lefts),
+		service.WithRights(rights),
 		service.WithFavStore(favStore),
 	)
 }
