@@ -11,15 +11,15 @@ import (
 )
 
 type Site struct {
-	name        string
-	home        string
+	name       string
+	home       string
 	chapterURL string
 }
 
 func New() *Site {
 	return &Site{
-		name:        string(pavium.Piaotian),
-		home:        "https://www.ptwxz.com/",
+		name:       string(pavium.Piaotian),
+		home:       "https://www.ptwxz.com/",
 		chapterURL: "https://www.ptwxz.com/html/",
 	}
 }
@@ -37,7 +37,13 @@ func (s *Site) SearchBook(author, title string) (pavium.Book, error) {
 		return book, err
 	}
 
-	book.ChapterLink = s.parseChapterLink(link)
+	link = s.parseChapterLink(link)
+
+	if link == "" {
+		return book, fmt.Errorf("%v not found", book)
+	}
+
+	book.ChapterLink = link
 
 	return book, nil
 }
@@ -105,7 +111,7 @@ func (s *Site) parseChapterLink(link string) string {
 	link = strings.Trim(link, ".html")
 	ss := strings.Split(link, "/")
 
-	if len(ss) < 6 {
+	if len(ss) < 6 || (len(ss) == 6 && ss[5] == "") {
 		return ""
 	}
 

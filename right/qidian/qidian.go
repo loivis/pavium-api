@@ -55,7 +55,13 @@ func (s *Site) SearchBook(author, title string) (pavium.Book, error) {
 		return book, err
 	}
 
-	book.ChapterLink = s.parseChapterLink(link)
+	link = s.parseChapterLink(link)
+
+	if link == "" {
+		return book, fmt.Errorf("%v not found", book)
+	}
+
+	book.ChapterLink = link
 
 	return book, nil
 }
@@ -179,6 +185,7 @@ func (s *Site) lastUpdate(b *pavium.Book) {
 func (s *Site) parseChapterLink(link string) string {
 	if !strings.HasPrefix(link, s.home+"/info/") {
 		log.Printf("%s: invalid book info page %q", s.name, link)
+		return ""
 	}
 
 	return link + "#Catalog"
