@@ -47,7 +47,7 @@ func (s *Site) SearchKeywords(keywords string) []pavium.Book {
 }
 
 func (s *Site) SearchBook(author, title string) (pavium.Book, error) {
-	book := pavium.Book{Author: author, Title: title}
+	book := pavium.Book{Author: author, Site: s.name, Title: title}
 
 	q := fmt.Sprintf("%s %s site:%s", author, title, s.home)
 	link, err := http.Search(q)
