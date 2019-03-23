@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/loivis/convolvulus-utils/http"
+	"github.com/loivis/prunusavium-utils/http"
 	"github.com/loivis/prunusavium-go/pavium"
 )
 
