@@ -1,4 +1,5 @@
-# prunusavium-go
+# prunusavium-api
+
 https://en.wikipedia.org/wiki/Prunus_avium
 
 + deploy cloud functions
