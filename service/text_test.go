@@ -6,8 +6,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/loivis/prunusavium-go/mock"
-	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-api/mock"
+	"github.com/loivis/prunusavium-api/pavium"
 )
 
 func TestService_Text(t *testing.T) {

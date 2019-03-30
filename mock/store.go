@@ -3,7 +3,7 @@ package mock
 import (
 	"context"
 
-	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-api/pavium"
 )
 
 type Store struct {

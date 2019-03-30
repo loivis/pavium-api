@@ -7,7 +7,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/loivis/prunusavium-utils/http"
-	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-api/pavium"
 )
 
 type Site struct {

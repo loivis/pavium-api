@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/loivis/prunusavium-go/functions/api"
+	"github.com/loivis/prunusavium-api/functions/api"
 )
 
 func main() {

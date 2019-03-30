@@ -3,7 +3,7 @@ package service
 import (
 	"net/http"
 
-	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-api/pavium"
 )
 
 func (svc *Service) Text(w http.ResponseWriter, r *http.Request) {

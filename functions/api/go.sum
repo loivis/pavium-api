@@ -57,8 +57,8 @@ github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515/go.mod h1:+0opPa2QZZtGFB
 github.com/kr/pty v1.1.3/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/loivis/gs-google-search v0.0.0-20181014184556-c11d1f63cdf0 h1:ftG56wbYFKbqVTAObb8TKHPQ4NU6SQK1YClrtJcz3Xo=
 github.com/loivis/gs-google-search v0.0.0-20181014184556-c11d1f63cdf0/go.mod h1:EEwWWxh542d6VhsvN5aosq7WFjADsawwKVyhiivbPyQ=
-github.com/loivis/prunusavium-go v0.0.0-20190323203132-9fbcad41cf0d h1:y30UZ4OUHV3koiSmjyfbRUL603xzQXPbI7+07w4ZLFM=
-github.com/loivis/prunusavium-go v0.0.0-20190323203132-9fbcad41cf0d/go.mod h1:bJYsi3USTuES/eAOLZLUlOrzaRwwlOQLWUAK1SkjGvk=
+github.com/loivis/prunusavium-api v0.0.0-20190323203132-9fbcad41cf0d h1:y30UZ4OUHV3koiSmjyfbRUL603xzQXPbI7+07w4ZLFM=
+github.com/loivis/prunusavium-api v0.0.0-20190323203132-9fbcad41cf0d/go.mod h1:bJYsi3USTuES/eAOLZLUlOrzaRwwlOQLWUAK1SkjGvk=
 github.com/loivis/prunusavium-utils v0.0.0-20190323201538-570a18a4574f h1:/sPtwXSlfJ4/dbDWOfXMPUEMRwQY2e/TBQznPNfRXFk=
 github.com/loivis/prunusavium-utils v0.0.0-20190323201538-570a18a4574f/go.mod h1:zffITNMxlSxl7eFH1BW9xf7lVs06SujTEaC2iCe40do=
 github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5Ld7szi9bcBfOoFv/3dc6xSMkL2PC0=

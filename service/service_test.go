@@ -3,9 +3,9 @@ package service
 import (
 	"testing"
 
-	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-api/pavium"
 
-	"github.com/loivis/prunusavium-go/mock"
+	"github.com/loivis/prunusavium-api/mock"
 )
 
 func TestService_New(t *testing.T) {

@@ -1,6 +1,6 @@
 package service
 
-import "github.com/loivis/prunusavium-go/pavium"
+import "github.com/loivis/prunusavium-api/pavium"
 
 type Service struct {
 	lefts    map[pavium.SiteName]pavium.Left

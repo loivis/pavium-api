@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/loivis/prunusavium-go/pavium"
+	"github.com/loivis/prunusavium-api/pavium"
 )
 
 func (svc *Service) Search(w http.ResponseWriter, r *http.Request) {
