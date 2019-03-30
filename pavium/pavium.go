@@ -32,6 +32,7 @@ type Book struct {
 	Author      string     `json:"author,omitempty"`
 	ChapterLink string     `json:"chapterLink,omitempty"`
 	ID          string     `json:"id,omitempty"`
+	Link        string     `json:"link,omitempty"`
 	Site        string     `json:"site,omitempty"`
 	Title       string     `json:"title,omitempty"`
 	Update      *time.Time `json:"update,omitempty"`

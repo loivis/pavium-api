@@ -18,6 +18,7 @@ import (
 type Site struct {
 	name       string
 	home       string
+	bookLink   string
 	chapterURL string
 	searchURL  string
 }
@@ -26,6 +27,7 @@ func New() *Site {
 	return &Site{
 		name:       string(pavium.Zongheng),
 		home:       "http://book.zongheng.com",
+		bookLink:   "http://book.zongheng.com/book/%s.html",
 		chapterURL: "http://book.zongheng.com/showchapter/%v.html",
 		searchURL:  "http://search.zongheng.com/s?keyword=%s",
 	}
@@ -125,6 +127,7 @@ func (s *Site) findBooks(doc *goquery.Document) (books []pavium.Book) {
 		books = append(books, pavium.Book{
 			Author: author,
 			ID:     id,
+			Link:   link,
 			Site:   s.name,
 			Title:  title,
 		})
