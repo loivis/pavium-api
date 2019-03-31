@@ -122,6 +122,8 @@ func (s *Site) Text(link string) string {
 
 func (s *Site) findBooks(doc *goquery.Document) (books []pavium.Book) {
 	doc.Find("div#result-list").Find("li.res-book-item").Each(func(i int, sel *goquery.Selection) {
+		image, _ := sel.Find("div.book-img-box").Find("img").Attr("src")
+		image = "https:" + image
 		a := sel.Find("div.book-mid-info").Find("h4").Find("a")
 		title := a.Text()
 		href, _ := a.Attr("href")
@@ -131,6 +133,7 @@ func (s *Site) findBooks(doc *goquery.Document) (books []pavium.Book) {
 		books = append(books, pavium.Book{
 			Author: author,
 			ID:     id,
+			Image:  image,
 			Link:   "https:" + href,
 			Site:   s.name,
 			Title:  title,
