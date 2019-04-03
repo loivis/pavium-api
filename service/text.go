@@ -31,6 +31,6 @@ func (svc *Service) getText(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(site.Text(lk)))
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	w.Write([]byte(site.Text(lk)))
 }
