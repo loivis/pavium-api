@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/loivis/prunusavium-api/mock"
-	"github.com/loivis/prunusavium-api/pavium"
+	"github.com/loivis/pavium-api/mock"
+	"github.com/loivis/pavium-api/pavium"
 )
 
 func TestService_Chapters(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"cloud.google.com/go/firestore"
-	"github.com/loivis/prunusavium-api/pavium"
+	"github.com/loivis/pavium-api/pavium"
 	"google.golang.org/api/iterator"
 )
 

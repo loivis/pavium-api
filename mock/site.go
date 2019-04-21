@@ -1,6 +1,6 @@
 package mock
 
-import "github.com/loivis/prunusavium-api/pavium"
+import "github.com/loivis/pavium-api/pavium"
 
 type Site struct {
 	NameFunc           func() string

@@ -4,12 +4,12 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/loivis/prunusavium-api/left/piaotian"
-	"github.com/loivis/prunusavium-api/pavium"
-	"github.com/loivis/prunusavium-api/right/qidian"
-	"github.com/loivis/prunusavium-api/right/zongheng"
-	"github.com/loivis/prunusavium-api/service"
-	"github.com/loivis/prunusavium-api/store"
+	"github.com/loivis/pavium-api/left/piaotian"
+	"github.com/loivis/pavium-api/pavium"
+	"github.com/loivis/pavium-api/right/qidian"
+	"github.com/loivis/pavium-api/right/zongheng"
+	"github.com/loivis/pavium-api/service"
+	"github.com/loivis/pavium-api/store"
 )
 
 var mux = http.NewServeMux()

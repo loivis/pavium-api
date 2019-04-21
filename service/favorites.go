@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/loivis/prunusavium-api/pavium"
+	"github.com/loivis/pavium-api/pavium"
 )
 
 func (svc *Service) Favorites(w http.ResponseWriter, r *http.Request) {

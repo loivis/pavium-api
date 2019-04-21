@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/loivis/prunusavium-api/pavium"
-	"github.com/loivis/prunusavium-utils/http"
+	"github.com/loivis/pavium-api/pavium"
+	"github.com/loivis/pavium-utils/http"
 )
 
 type Site struct {
